@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gestor de Tareas: organiza tus pendientes de forma sencilla y rápida.">
+  <title>Gestor de Tareas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div class="brand-mark" aria-hidden="true">✓</div>
+      <div>
+        <p class="eyebrow">ESPACIO PERSONAL</p>
+        <h1>Gestor de Tareas</h1>
+      </div>
+      <div class="date-display" id="dateDisplay" aria-label="Fecha actual"></div>
+    </header>
+
+    <section class="summary-panel" aria-labelledby="summaryTitle">
+      <div class="summary-copy">
+        <p class="eyebrow">TU DÍA, EN ORDEN</p>
+        <h2 id="summaryTitle">Un paso a la vez.</h2>
+        <p class="summary-text" id="summaryText">Añade una tarea para empezar.</p>
+      </div>
+      <div class="progress-ring" id="progressRing" aria-label="Progreso de tareas" role="img">
+        <span id="progressValue">0%</span>
+      </div>
+    </section>
+
+    <section class="task-composer" aria-label="Agregar una tarea">
+      <form id="taskForm">
+        <label class="sr-only" for="taskInput">Nueva tarea</label>
+        <input id="taskInput" name="task" type="text" maxlength="120" placeholder="¿Qué necesitas hacer?" autocomplete="off" required>
+        <button class="primary-button" type="submit">
+          <span aria-hidden="true">+</span>
+          Agregar tarea
+        </button>
+      </form>
+    </section>
+
+    <section class="tasks-section" aria-labelledby="tasksTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">LISTA DE HOY</p>
+          <h2 id="tasksTitle">Mis tareas <span class="task-count" id="taskCount">0</span></h2>
+        </div>
+        <button class="text-button" id="clearCompleted" type="button">Limpiar completadas</button>
+      </div>
+
+      <nav class="filters" aria-label="Filtrar tareas">
+        <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todas <span id="allCount">0</span></button>
+        <button class="filter-button" type="button" data-filter="pending" aria-pressed="false">Pendientes <span id="pendingCount">0</span></button>
+        <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completadas <span id="completedCount">0</span></button>
+      </nav>
+
+      <div class="task-list" id="taskList" aria-live="polite"></div>
+      <div class="empty-state" id="emptyState" hidden>
+        <div class="empty-icon" aria-hidden="true">✓</div>
+        <h3 id="emptyTitle">Todo despejado</h3>
+        <p id="emptyText">No hay tareas pendientes. Disfruta el momento.</p>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      <span>Guardado automáticamente en este dispositivo</span>
+      <span class="storage-status"><span class="status-dot" aria-hidden="true"></span> LocalStorage activo</span>
+    </footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
