@@ -1,3 +1,5 @@
+Proyecto creado para la tarea de Programacion 1 - uso del github.
+
 # Gestor de Tareas
 
 Aplicacion web de lista de tareas construida unicamente con HTML, CSS y JavaScript puro. No necesita backend, base de datos ni proceso de compilacion.
